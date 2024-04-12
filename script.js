@@ -54,6 +54,7 @@ async function getImagesObject(evolucao) {
 }
 
 async function main() {
+  countVisits()
   const titulo = document.getElementById('header')
   const img = document.getElementById('evolucao')
   const queryString = window.location.search
