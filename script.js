@@ -12,7 +12,6 @@ function countVisits() {
     localStorage.setItem('count', 0);
   }
   localStorage.setItem('last-access', now);
-  console.log(localStorage.getItem('last-access'))
   setFooter();
 }
 
@@ -30,7 +29,6 @@ function changeImage(evolucaoObject) {
   const index = localStorage.getItem('image-index')
   const img = document.querySelector('#evolucao-image');
   img.setAttribute('src', evolucaoObject[index])
-  console.log(evolucaoObject[index])
 }
 
 async function getImagesObject(evolucao) {
@@ -65,15 +63,12 @@ async function main() {
 
   const evolucaoObject = await getImagesObject(evolucao, img);
   set_page(evolucao, evolucaoObject, img)
-  console.log(evolucaoObject)
 
   img.addEventListener('click', () => {
     let image_index = localStorage.getItem('image-index');
-    console.log(image_index)
     if (image_index > (Object.values(evolucaoObject).length) -2) {
       image_index = 0;
     }
-    console.log(image_index)
     localStorage.setItem('image-index', ++image_index);
     changeImage(evolucaoObject)
   });
