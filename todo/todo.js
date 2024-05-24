@@ -1,26 +1,37 @@
-function openDialog() {
+function openDialog(e) {
   const overlay = document.getElementById('dialog-overlay');
+  const parentElement = e.target.parentElement;
+
+  const taskTitle = parentElement.querySelector('h2').textContent;
+  const taskDesc = parentElement.querySelector('p').textContent;
+
+  const dialogInputTitle = document.querySelector('.input-title-dialog');
+  const dialogInputDesc = document.querySelector('.input-desc-dialog');
+
   const cancelButton = document.getElementById('cancel-button');
+  const submitButton = document.getElementById('submit-button');
 
   overlay.style.display = 'flex';
+  dialogInputTitle.placeholder = taskTitle;
+  dialogInputDesc.placeholder = taskDesc;
 
   cancelButton.addEventListener('click', () => {
     overlay.style.display = 'none';
   });
 
-  const submitButton = document.getElementById('submit-button');
   submitButton.addEventListener('click', () => {
-    const inputValue = document.getElementById('input-field').value;
-    const textareaValue = document.getElementById('textarea-field').value;
-    console.log('Input:', inputValue);
-    console.log('Textarea:', textareaValue);
+    const inputTitle = document.getElementById('input-field').value;
+    const inputDesc = document.getElementById('textarea-field').value;
+
+    parentElement.querySelector('h2').textContent = inputTitle;
+    parentElement.querySelector('p').textContent = inputDesc;
     overlay.style.display = 'none';
   });
 }
 
 function clearLS() {
-  localStorage.removeItem('inputs')
-  listLocalStorageItems()
+  localStorage.removeItem('inputs');
+  listLocalStorageItems();
 }
 
 function listLocalStorageItems() {
@@ -43,6 +54,7 @@ function listLocalStorageItems() {
 
     editButton.textContent = '✏️';
     editButton.title = 'Editar tarefa';
+    editButton.onclick = console.log('oi');
     editButton.addEventListener('click', openDialog);
     editButton.classList.add('edit-button');
 
