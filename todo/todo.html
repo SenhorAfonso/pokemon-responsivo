@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./todo.css" />
+    <script src="./todo.js"></script>
+    <title>Document</title>
+  </head>
+  <body onload="listLocalStorageItems()">
+
+    <div class="grid-container">
+
+      <header id="header">
+        <h1>To-Do List</h1>
+      </header>
+
+      <main class="main">
+
+        <div class="input-container">
+          <input id="input-title" class="input-title" type="text"
+            placeholder="informe o título da tarefa">
+          <textarea placeholder="Informe a descrição da tarefa" id="input-desc"
+            class="input-desc" name id></textarea>
+          <div>
+            <button class="input-submit" onclick="submited()">Salvar
+              Tarefa</button>
+            <button class="input-submit" onclick="clearLS()">Apagar Tarefas</button>
+          </div>
+        </div>
+
+        <ul class="todo-list-container">
+
+        </ul>
+
+        <div class="overlay" id="dialog-overlay">
+          <div class="dialog">
+
+            <div class="input-container">
+              <input class="input-title-dialog"
+                placeholder="informe o título da tarefa" type="text"
+                id="input-field" />
+              <textarea class="input-desc-dialog"
+                placeholder="Informe a descrição da tarefa" id="textarea-field"
+                rows="4"></textarea>
+            </div>
+
+            <div class="dialog-buttons">
+              <button class="dialog-button" id="cancel-button">Cancelar</button>
+              <button class="dialog-button" id="submit-button">Enviar</button>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <footer aria-label="Rodapé">
+        <p id="copyright" aria-label="Copyright">
+          &copy; 2024 Página do Pokémon Squirtle. Todos os direitos reservados.
+        </p>
+        <p><a href="#header">Voltar para o topo</a></p>
+        <p><a href="mailto:contato@squirtlepage.com">Contato via e-mail</a></p>
+        <p><a href="tel:+5555555555">Telefone: (55) 5555-5555</a></p>
+        <p id="access"></p>
+      </footer>
+
+    </div>
+
+  </body>
+</html>
